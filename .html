@@ -1,0 +1,166 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <title>Login + Animation Page</title>  
+  <style>  
+    * {  
+      box-sizing: border-box;  
+      margin: 0;  
+      padding: 0;  
+    }  body {  
+  font-family: Arial, sans-serif;  
+  background-color: white;  
+  height: 100vh;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  overflow: hidden;  
+  position: relative;  
+}  
+
+/* Glowing Particles */  
+.particles {  
+  position: absolute;  
+  width: 100%;  
+  height: 100%;  
+  background: radial-gradient(circle, #0077ff 1px, transparent 1px);  
+  background-size: 40px 40px;  
+  animation: glow 4s linear infinite;  
+  z-index: 0;  
+}  
+
+@keyframes glow {  
+  0% { background-position: 0 0; }  
+  100% { background-position: 40px 40px; }  
+}  
+
+/* Login Box */  
+.login-box {  
+  width: 350px;  
+  padding: 30px;  
+  border: 4px solid darkblue;  
+  background-color: lightblue;  
+  z-index: 1;  
+  text-align: center;  
+  box-shadow: 0 0 20px #0077ff;  
+}  
+
+.login-box h2 {  
+  margin-bottom: 20px;  
+  color: darkblue;  
+}  
+
+.login-box input {  
+  width: 90%;  
+  padding: 10px;  
+  margin: 10px 0;  
+  border: 2px solid darkblue;  
+  border-radius: 5px;  
+  outline: none;  
+}  
+
+.login-box button {  
+  padding: 10px 30px;  
+  background-color: darkblue;  
+  color: white;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+  font-weight: bold;  
+}  
+
+/* Animation Page */  
+.center-box {  
+  width: 400px;  
+  height: 280px;  
+  border: 4px solid darkblue;  
+  background-color: lightblue;  
+  display: none;  
+  flex-direction: column;  
+  justify-content:top;  
+  align-items: center;  
+  position: relative;  
+  z-index: 1;  
+  box-shadow: 0 0 20px #0077ff;  
+}  
+
+.title {  
+  font-size: 20px;  
+  font-weight: bold;  
+  margin-bottom: 10px;  
+  color: darkblue;  
+}  
+
+.  
+
+.heart::before,  
+.heart::after {  
+  content: "";  
+  width: 50px;  
+  height: 50px;  
+  background-color: red;  
+  border-radius: 50%;  
+  position: absolute;  
+}  
+
+.heart::before {  
+  top: -25px;  
+  left: 0;  
+}  
+
+.heart::after {  
+  left: 25px;  
+  top: 0;  
+}  
+
+@keyframes pulse {  
+  0% { transform: rotate(-45deg) scale(1); }  
+  50% { transform: rotate(-45deg) scale(1.2); }  
+  100% { transform: rotate(-45deg) scale(1); }  
+}  
+
+.sliding-text {  
+  font-size: 22px;  
+  font-weight: bold;  
+  position: absolute;  
+  top: -50px;  
+  animation: slideDown 3s ease-in-out forwards;  
+  color: #000;  
+}  
+
+@keyframes slideDown {  
+  0% { top: -50px; opacity: 0; }  
+  50% { top: 80px; opacity: 1; }  
+  100% { top: 100px; }  
+}
+
+  </style>  
+</head>  
+<body>  <div class="particles"></div>  <!-- LOGIN PAGE -->  <div class="login-box" id="loginPage">  
+  <h2>Login</h2>  
+  <input type="text" id="username" placeholder="Username">  
+  <input type="password" id="password" placeholder="Password">  
+  <button onclick="login()">Login</button>  
+</div>  <!-- ANIMATION PAGE -->  <div class="center-box" id="mainPage">  
+  <div class="title">PAPA SUDARSHAN VYAS</div>  
+  <div class="heart"></div>  
+  <div class="sliding-text" id="text">Kulpratap Chodu, Kya Hal Chal</div>  
+</div>  <script>  
+  function login() {  
+    const user = document.getElementById("username").value.trim();  
+    const pass = document.getElementById("password").value.trim();  
+  
+    if (user === "papa" && pass === "Sudarshan") {  
+      document.getElementById("loginPage").style.display = "none";  
+      document.getElementById("mainPage").style.display = "flex";  
+  
+      const msg = new SpeechSynthesisUtterance("Kulprtap bhai kya hal chal papa Sudarshan ko bhul to nhi gaye bhul na bhi mat okay baby");  
+      msg.lang = "hi-IN";  
+      speechSynthesis.speak(msg);  
+    } else {  
+      alert("Galat Username ya Password");  
+    }  
+  }  
+</script>  </body>  
+</html>  Es code ka muje live link chiye
+
